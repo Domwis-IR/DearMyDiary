@@ -5,5 +5,10 @@
 Machine learning based Sentimental Analysis and Depression Detection application using Diary data.
 
 ## Timeline
-- 2022.03: Propoal & Idea Specifying
-- 2022.04: Machine learning Modeling
+- 2022.03
+    - Propoal 
+    - Finding Dataset
+    - Reading Related Paper
+    - Idea Specifying
+- 2022.04
+    - Machine learning Modeling
