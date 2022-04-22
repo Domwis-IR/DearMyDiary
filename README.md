@@ -1,2 +1,9 @@
-# DearMyDiary
+# Dear My Diary
 2022-1 Service Data Science Project
+
+## Description
+Machine learning based Sentimental Analysis and Depression Detection application using Diary data.
+
+## Timeline
+- 2022.03: Propoal & Idea Specifying
+- 2022.04: Machine learning Modeling
