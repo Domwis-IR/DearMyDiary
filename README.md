@@ -2,7 +2,7 @@
 2022-1 Service Data Science Project
 
 ## Description
-Machine learning based Sentimental Analysis and Depression Detection application using Diary data.
+Machine Learning based Sentimental Analysis and Depression Detection Application using Diary data.
 
 ## Timeline
 - 2022.03
