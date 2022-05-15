@@ -3,11 +3,11 @@ import 'package:date_format/date_format.dart';
 import 'package:timer_builder/timer_builder.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyScreen());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyScreen extends StatelessWidget {
+  const MyScreen({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
