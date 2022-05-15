@@ -12,8 +12,13 @@ class MyScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.lightBlue.shade900,
+        ),
+      ),
       home: mainscreens(title: 'Dear My Diary'),
     );
   }
