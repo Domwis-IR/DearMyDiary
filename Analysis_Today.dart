@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'Main_Screens.dart';
+import 'package:date_format/date_format.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 class MainRoute extends StatelessWidget {
 
@@ -212,8 +215,9 @@ class MainRoute extends StatelessWidget {
             RaisedButton(
               child: Text('메인화면으로'),
               onPressed: () {
-                Navigator.pop(
-                    context
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyScreen())
                 );
               },
             ),
