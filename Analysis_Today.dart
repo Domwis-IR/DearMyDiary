@@ -176,18 +176,30 @@ class MainRoute extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center
             ),
-            Container(
-              height: 150,
-              color: Colors.blueAccent,
-
+            DataTable(
+              columns: [
+                DataColumn(label: Text('날짜')),
+                DataColumn(label: Text('우울증상')),
+              ],
+              rows: [
+                for (int i = 0; i < 14; i++)
+                DataRow(
+                    cells: [
+                      DataCell(Text(formatDate(
+                          DateTime.now().subtract(Duration(days: i)), ['20', yy, '-', M, '-', d]))),
+                      DataCell(Text('지속되는 우울한 기분')),
+                    ]
+                ),
+              ],
             ),
-            Container(
-              height: 150,
-              color: Colors.blueAccent,
-
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+            ),
+            Text(
+              '2주간 일기 속에서 발견된 우울증상들이에요. 우울증상이 2주간 반복되면 우울증을 의심해요. 진단을 받아보고 함께 치유해요.'
             ),
             RaisedButton(
-              child: Text('명상하러가기'),
+              child: Text('우울진단 하러가기'),
               onPressed: () {
                 Navigator.pop(
                     context
