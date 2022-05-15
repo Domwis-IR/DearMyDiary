@@ -124,6 +124,9 @@ class _FormScreenState extends State<FormScreen> {
                         );
                       },
                       child: const Text('End of Diary'),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.lightBlue.shade900,
+                      ),
                     ),
                   ],
                 )),
