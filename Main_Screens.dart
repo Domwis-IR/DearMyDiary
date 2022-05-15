@@ -44,7 +44,7 @@ class _mainscreens extends State<mainscreens> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.lightBlue.shade900,
         unselectedItemColor: Colors.grey.withOpacity(.60),
         selectedFontSize: 14,
         unselectedFontSize: 14,
