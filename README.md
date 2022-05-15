@@ -24,4 +24,5 @@ dependencies:
   intl: ^0.15.7
   date_format: ^1.0.6
   timer_builder: ^2.0.0
+  flutter_youtube: "^2.0.0+1"
 ```
