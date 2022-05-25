@@ -39,6 +39,11 @@ class _diagnosisresult extends State<diagnosisresult> {
   }
   Widget build(BuildContext context) {
     return new MaterialApp(
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.lightBlue.shade900,
+        ),
+      ),
       home: new Scaffold(
       appBar: new AppBar(
       centerTitle: true,
