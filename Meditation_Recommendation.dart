@@ -1,45 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 
-void main() {
-  runApp(const Mymeditation());
-}
 
 class Mymeditation extends StatelessWidget {
-  const Mymeditation({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          color: Colors.lightBlue.shade900,
-        ),
-      ),
-      home: meditation_rcmd(title: 'Dear My Diary'),
-    );
-  }
-}
-
-class meditation_rcmd extends StatefulWidget {
-  const meditation_rcmd({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  State<meditation_rcmd> createState() => _meditation_rcmd();
-}
-
-class _meditation_rcmd extends State<meditation_rcmd> {
-  TextEditingController textEditingControllerUrl = new TextEditingController();
-  TextEditingController textEditingControllerId = new TextEditingController();
-
-  @override
-  initState(){
-    super.initState();
-  }
-
+  
   void playYoutubeVideo1(){
     FlutterYoutube.playYoutubeVideoByUrl(
         apiKey: "<API_KEY>", videoUrl: "https://www.youtube.com/watch?v=RtPwBk0pqKE"
@@ -55,8 +19,15 @@ class _meditation_rcmd extends State<meditation_rcmd> {
         apiKey: "<API_KEY>", videoUrl: "https://www.youtube.com/watch?v=yiysD0Jl2Wo"
     );
   }
+  
+  @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.lightBlue.shade900,
+        ),
+      ),
       home: new Scaffold(
         appBar: new AppBar(
           centerTitle: true,
