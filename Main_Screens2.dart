@@ -434,6 +434,9 @@ class _mainscreens extends State<mainscreens> {
           ),
         ],
       ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
     );
   }
 }
