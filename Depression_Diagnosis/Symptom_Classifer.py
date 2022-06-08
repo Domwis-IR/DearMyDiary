@@ -123,7 +123,7 @@ def symptom_detect (input_sen):
     return contents[best_i]
 
 def slice_sentence(input):
-    result = []
+    result = input.split('.')
     return result
 
 
