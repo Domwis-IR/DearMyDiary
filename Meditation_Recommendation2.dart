@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_youtube/flutter_youtube.dart';
 
 class Mymeditation extends StatelessWidget {
   @override
@@ -37,31 +38,24 @@ class Mymeditation extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 17)
                       ),
-                      TextSpan(
-                          text: '\n영상주소 : https://www.youtube.com/watch?v=RtPwBk0pqKE',
-                          style: TextStyle(
-                              fontSize: 17)
-                      ),
+
                     ],
                   ),
                   textAlign: TextAlign.center
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
-                child: Row(children: <Widget>[
-                  Padding(padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),),
-                  SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: Image.asset('lib/assets/video1.png')
-                  ),
-                  Padding(padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),),
-                  new Padding(
-                    padding: const EdgeInsets.all(20.0),
-                  ),
-                ],
+              SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: Image.asset('lib/assets/video1.png')
+              ),
+              Text.rich(
+                TextSpan(
+                    text: '\nhttps://www.youtube.com/watch?v=RtPwBk0pqKE',
+                    style: TextStyle(
+                        fontSize: 17)
                 ),
               ),
+              Padding(padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),),
 
               Text.rich(
                   TextSpan(
@@ -82,32 +76,25 @@ class Mymeditation extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 17)
                       ),
-                      TextSpan(
-                          text: '\n영상주소 : https://www.youtube.com/watch?v=2N4eTTipm9I',
-                          style: TextStyle(
-                              fontSize: 17)
-                      ),
+
                     ],
                   ),
                   textAlign: TextAlign.center
               ),
-
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
-                child: Row(children: <Widget>[
-                  Padding(padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),),
-                  SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: Image.asset('lib/assets/video2.png')
-                  ),
-                  Padding(padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),),
-                  new Padding(
-                    padding: const EdgeInsets.all(20.0),
-                  ),
-                ],
-                ),
+              SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: Image.asset('lib/assets/video2.png')
               ),
+              Text.rich(
+                    TextSpan(
+                        text: '\nhttps://www.youtube.com/watch?v=2N4eTTipm9I',
+                        style: TextStyle(
+                            fontSize: 17)
+                    ),
+              ),
+
+              Padding(padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),),
               Text.rich(
                   TextSpan(
                     children: <TextSpan> [
@@ -127,32 +114,26 @@ class Mymeditation extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 17)
                       ),
-                      TextSpan(
-                          text: '\n영상주소 : https://www.youtube.com/watch?v=yiysD0Jl2Wo',
-                          style: TextStyle(
-                              fontSize: 17)
-                      ),
+
                     ],
                   ),
                   textAlign: TextAlign.center
               ),
-
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
-                child: Row(children: <Widget>[
-                  Padding(padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),),
-                  SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: Image.asset('lib/assets/video3.png')
-                  ),
-                  Padding(padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),),
-                  new Padding(
-                    padding: const EdgeInsets.all(20.0),
-                  ),
-                ],
-                ),
+              Padding(padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),),
+              SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: Image.asset('lib/assets/video3.png')
               ),
+              Text.rich(
+                    TextSpan(
+                        text: '\nhttps://www.youtube.com/watch?v=yiysD0Jl2Wo',
+                        style: TextStyle(
+                            fontSize: 17)
+                    ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),),
+
             ],
           ),
         ),
