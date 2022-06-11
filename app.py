@@ -5,17 +5,17 @@ app = Flask(__name__)
 
 
 
-@app.route('/',methods=['GET'])
+@app.route('/',methods=['POST'])
 
 def analyze_diary():
 	data = request.get_json()
-	if 'image' not in data:
-        return "", 400
+	if 'text' not in data:
+		return "", 400
 
-    sentiment = Sentiment_Classifer.sentiment_classfier(data)
+	sentiment = Sentiment_Classifer.sentiment_classfier(data)
 	symptom = Symptom_Classifer.find_best_Ssymptom(data)
 
-    return sentiment, symptom, 200
+	return [sentiment, symptom], 200
 
 
 if __name__ == '__main__':
