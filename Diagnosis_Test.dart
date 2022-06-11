@@ -88,7 +88,7 @@ class _DiagnosisTest extends State<DiagnosisTest>{
                                         "7일 이상 방해 받았다",
                                         "거의 매일 방해 받았다"];
   int _isRadioSelected = 0;
-  List<int> answer_int = <int>[-1,-1,-1,-1,-1,-1,-1,-1,-1];
+  List<int> answer_int = <int>[0,0,0,0,0,0,0,0,0];
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -115,6 +115,7 @@ class _DiagnosisTest extends State<DiagnosisTest>{
                         child:
                         Text(
                           '${index + 1}. ${questions[index]}',
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               height: 5, fontSize: 14, color: Colors.black),
                         )
@@ -125,44 +126,44 @@ class _DiagnosisTest extends State<DiagnosisTest>{
                         LabeledRadio(
                           label: "전혀 방해 받지 않았다",
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                          value: 0,
+                          value: 1,
                           groupValue: answer_int[index],
                           onChanged: (int newValue) {
                             setState(() {
-                              _isRadioSelected = newValue;
+                             answer_int[index] = newValue;
                             });
                           },
                         ),
                         LabeledRadio(
                           label: "며칠 동안 방해 받았다",
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                          value: 1,
-                          groupValue: _isRadioSelected,
+                          value: 2,
+                          groupValue: answer_int[index],
                           onChanged: (int newValue) {
                             setState(() {
-                              _isRadioSelected = newValue;
+                              answer_int[index] = newValue;
                             });
                           },
                         ),
                         LabeledRadio(
                           label: "7일 이상 방해 받았다",
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                          value: 2,
-                          groupValue: _isRadioSelected,
+                          value: 3,
+                          groupValue: answer_int[index],
                           onChanged: (int newValue) {
                             setState(() {
-                              _isRadioSelected = newValue;
+                              answer_int[index] = newValue;
                             });
                           },
                         ),
                         LabeledRadio(
                           label: "거의 매일 방해 받았다",
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                          value: 3,
-                          groupValue: _isRadioSelected,
+                          value: 4,
+                          groupValue: answer_int[index],
                           onChanged: (int newValue) {
                             setState(() {
-                              _isRadioSelected = newValue;
+                              answer_int[index] = newValue;
                             });
                           },
                         ),
