@@ -12,6 +12,7 @@ import 'package:flutter_calendar_carousel/classes/event_list.dart';
 
 import 'package:date_format/date_format.dart';
 import 'package:home/Diagnosis_Test.dart';
+import 'Diary_View.dart';
 import 'package:timer_builder/timer_builder.dart';
 
 void main() {
@@ -60,49 +61,49 @@ class _ArticleDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const Padding(padding: EdgeInsets.only(bottom: 2.0)),
-              Text(
-                content,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.black54,
+                const Padding(padding: EdgeInsets.only(bottom: 2.0)),
+                Text(
+                  content,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.black54,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Text(
-                publishDate,
-                style: const TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.black54,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  publishDate,
+                  style: const TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.black54,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
     );
   }
 }
@@ -124,7 +125,14 @@ class CustomListItemTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return GestureDetector(
+        onTap: (){
+      Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DiaryView())
+      );
+    },
+    child:  Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: SizedBox(
         height: 100,
@@ -147,6 +155,7 @@ class CustomListItemTwo extends StatelessWidget {
             )
           ],
         ),
+      ),
       ),
     );
   }
@@ -187,37 +196,34 @@ class CalendarPage2 extends StatefulWidget {
   _CalendarPage2State createState() => new _CalendarPage2State();
 }
 
-List<DateTime> presentDates = [
-  DateTime(2022, 5, 1),
-  DateTime(2022, 5, 3),
-  DateTime(2022, 5, 4),
-  DateTime(2022, 5, 5),
-  DateTime(2022, 5, 6),
-  DateTime(2022, 5, 9),
-  DateTime(2022, 5, 10),
-  DateTime(2022, 5, 11),
-  DateTime(2022, 5, 15),
-  DateTime(2022, 5, 22),
-  DateTime(2022, 5, 23),
+List<DateTime> happyDates = [
+  DateTime(2022, 6, 1),
 ];
-List<DateTime> absentDates = [
-  DateTime(2022, 5, 2),
-  DateTime(2022, 5, 7),
-  DateTime(2022, 5, 8),
-  DateTime(2022, 5, 12),
-  DateTime(2022, 5, 13),
-  DateTime(2022, 5, 14),
-  DateTime(2022, 5, 16),
-  DateTime(2022, 5, 17),
-  DateTime(2022, 5, 18),
-  DateTime(2022, 5, 19),
-  DateTime(2022, 5, 20),
+
+List<DateTime> sadDates = [
+  DateTime(2022, 6, 2),
+];
+
+List<DateTime> angryDates = [
+  DateTime(2022, 6, 3),
+];
+
+List<DateTime> anxiousDates = [
+  DateTime(2022, 6, 4),
+];
+
+List<DateTime> hurtDates = [
+  DateTime(2022, 6, 5),
+];
+
+List<DateTime> embarrassedDates = [
+  DateTime(2022, 6, 6),
 ];
 
 class _CalendarPage2State extends State<CalendarPage2> {
   DateTime _currentDate2 = DateTime.now();
-  static Widget _presentIcon(String day) => CircleAvatar(
-    backgroundColor: Colors.green,
+  static Widget _happyIcon(String day) => CircleAvatar(
+    backgroundColor: Colors.yellow,
     child: Text(
       day,
       style: TextStyle(
@@ -225,8 +231,44 @@ class _CalendarPage2State extends State<CalendarPage2> {
       ),
     ),
   );
-  static Widget _absentIcon(String day) => CircleAvatar(
+  static Widget _sadIcon(String day) => CircleAvatar(
+    backgroundColor: Colors.blueAccent,
+    child: Text(
+      day,
+      style: TextStyle(
+        color: Colors.black,
+      ),
+    ),
+  );
+  static Widget _angryIcon(String day) => CircleAvatar(
     backgroundColor: Colors.red,
+    child: Text(
+      day,
+      style: TextStyle(
+        color: Colors.black,
+      ),
+    ),
+  );
+  static Widget _anxiousIcon(String day) => CircleAvatar(
+    backgroundColor: Colors.purple,
+    child: Text(
+      day,
+      style: TextStyle(
+        color: Colors.black,
+      ),
+    ),
+  );
+  static Widget _hurtIcon(String day) => CircleAvatar(
+    backgroundColor: Colors.orange,
+    child: Text(
+      day,
+      style: TextStyle(
+        color: Colors.black,
+      ),
+    ),
+  );
+  static Widget _embarrassedIcon(String day) => CircleAvatar(
+    backgroundColor: Colors.green,
     child: Text(
       day,
       style: TextStyle(
@@ -241,7 +283,7 @@ class _CalendarPage2State extends State<CalendarPage2> {
 
   late CalendarCarousel _calendarCarouselNoHeader;
 
-  var len = min(absentDates.length, presentDates.length);
+  var len = min(happyDates.length, sadDates.length);
   late double cHeight;
 
   @override
@@ -249,12 +291,12 @@ class _CalendarPage2State extends State<CalendarPage2> {
     cHeight = MediaQuery.of(context).size.height;
     for (int i = 0; i < len; i++) {
       _markedDateMap.add(
-        presentDates[i],
+        happyDates[i],
         new Event(
-          date: presentDates[i],
-          title: 'Event 5',
-          icon: _presentIcon(
-            presentDates[i].day.toString(),
+          date: happyDates[i],
+          title: 'Happy',
+          icon: _happyIcon(
+            happyDates[i].day.toString(),
           ),
         ),
       );
@@ -262,17 +304,68 @@ class _CalendarPage2State extends State<CalendarPage2> {
 
     for (int i = 0; i < len; i++) {
       _markedDateMap.add(
-        absentDates[i],
+        sadDates[i],
         new Event(
-          date: absentDates[i],
-          title: 'Event 5',
-          icon: _absentIcon(
-            absentDates[i].day.toString(),
+          date: sadDates[i],
+          title: 'Sad',
+          icon: _sadIcon(
+            sadDates[i].day.toString(),
           ),
         ),
       );
     }
 
+    for (int i = 0; i < len; i++) {
+      _markedDateMap.add(
+        angryDates[i],
+        new Event(
+          date: angryDates[i],
+          title: 'Angry',
+          icon: _angryIcon(
+            angryDates[i].day.toString(),
+          ),
+        ),
+      );
+    }
+
+    for (int i = 0; i < len; i++) {
+      _markedDateMap.add(
+        anxiousDates[i],
+        new Event(
+          date: anxiousDates[i],
+          title: 'Anxious',
+          icon: _anxiousIcon(
+            anxiousDates[i].day.toString(),
+          ),
+        ),
+      );
+    }
+
+    for (int i = 0; i < len; i++) {
+      _markedDateMap.add(
+        hurtDates[i],
+        new Event(
+          date: hurtDates[i],
+          title: 'Hurt',
+          icon: _hurtIcon(
+            hurtDates[i].day.toString(),
+          ),
+        ),
+      );
+    }
+
+    for (int i = 0; i < len; i++) {
+      _markedDateMap.add(
+        embarrassedDates[i],
+        new Event(
+          date: embarrassedDates[i],
+          title: 'Embarrassed',
+          icon: _embarrassedIcon(
+            embarrassedDates[i].day.toString(),
+          ),
+        ),
+      );
+    }
     _calendarCarouselNoHeader = CalendarCarousel<Event>(
       height: cHeight * 0.54,
       weekendTextStyle: TextStyle(
@@ -298,8 +391,12 @@ class _CalendarPage2State extends State<CalendarPage2> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             _calendarCarouselNoHeader,
-            markerRepresent(Colors.red, "Absent"),
-            markerRepresent(Colors.green, "Present"),
+            markerRepresent(Colors.yellow, "Happy"),
+            markerRepresent(Colors.blueAccent, "Sad"),
+            markerRepresent(Colors.red, "Angry"),
+            markerRepresent(Colors.purple, "Anxious"),
+            markerRepresent(Colors.orange, "Hurt"),
+            markerRepresent(Colors.green, "Embarrassed"),
           ],
         ),
       ),
@@ -375,7 +472,7 @@ class twoWeeksAnalysisWidget extends StatelessWidget {
             onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DiagnosisTest(title: "우울 진단 검사",))
+                    MaterialPageRoute(builder: (context) => DiagnosisTest(  ))
                 );
             },
           ),
@@ -420,10 +517,6 @@ class _mainscreens extends State<mainscreens> {
             label: '일기목록',
             icon: FaIcon(FontAwesomeIcons.book),
           ),
-          // BottomNavigationBarItem(
-          //   label: '일기분석',
-          //   icon: Icon(Icons.article),
-          // ),
           BottomNavigationBarItem(
             label: '월별분석',
             icon: Icon(Icons.calendar_today),
