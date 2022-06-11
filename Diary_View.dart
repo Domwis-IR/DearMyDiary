@@ -11,8 +11,8 @@ class Diary extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
+        Align(
+          alignment: Alignment.centerLeft,
           child: Column(
             children: [
               Text(
@@ -45,11 +45,14 @@ class DiaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Column(
-      children: <Widget>[
-        Diary(),
-        MainRoute(),
-      ],
+    return Scaffold(
+      appBar: AppBar(title: Text('Dear My Diary')),
+      body: Column(
+        children: <Widget>[
+          const Diary(),
+          Expanded(child: AnalysisToday()),
+        ],
+      ),
     );
   }
 }
