@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'Diagnosis_Result.dart';
 void main(){
-  runApp(const MyApp());
+  runApp(const DiagnosisTestPage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class DiagnosisTestPage extends StatelessWidget {
+  const DiagnosisTestPage({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           color: Colors.lightBlue.shade900,
         ),
       ),
-      home: DiagnosisTest(title: 'Diagnosis Test'),
+      home: DiagnosisTest(),
     );
   }
 }
@@ -34,9 +34,9 @@ class LabeledRadio extends StatelessWidget {
 
   final String label;
   final EdgeInsets padding;
-  final bool groupValue;
-  final bool value;
-  final ValueChanged<bool> onChanged;
+  final int groupValue;
+  final int value;
+  final ValueChanged<int> onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +50,10 @@ class LabeledRadio extends StatelessWidget {
         padding: padding,
         child: Row(
           children: <Widget>[
-            Radio<bool>(
+            Radio<int>(
               groupValue: groupValue,
               value: value,
-              onChanged: (bool? newValue) {
+              onChanged: (int? newValue) {
                 onChanged(newValue!);
               },
             ),
@@ -66,8 +66,7 @@ class LabeledRadio extends StatelessWidget {
 }
 
 class DiagnosisTest extends StatefulWidget{
-  const DiagnosisTest({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const DiagnosisTest({Key? key}) : super(key: key);
 
   @override
   State<DiagnosisTest> createState() => _DiagnosisTest();
@@ -88,84 +87,106 @@ class _DiagnosisTest extends State<DiagnosisTest>{
                                         "며칠 동안 방해 받았다",
                                         "7일 이상 방해 받았다",
                                         "거의 매일 방해 받았다"];
-
-  bool _isRadioSelected = false;
-
+  int _isRadioSelected = 0;
+  List<int> answer_int = <int>[-1,-1,-1,-1,-1,-1,-1,-1,-1];
   @override
   Widget build(BuildContext context){
-    return
-      ListView.separated(
-      padding: const EdgeInsets.all(8),
-      itemCount: questions.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          children: [
-            Container(
-              height: 50,
-              child:
-                Text('Entry ${questions[index]}')),
-            // ListView.builder(
-            //       padding: const EdgeInsets.all(8),
-            //       itemCount: answers.length,
-            //       itemBuilder: (BuildContext context, int index) {
-            //         return Container(
-            //           height: 50,
-            //           child: Center(child: Text('Entry ${answers[index]}')),
-            //         );
-            //       })
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <LabeledRadio>[
-                LabeledRadio(
-                  label: "전혀 방해 받지 않았다",
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                  value: true,
-                  groupValue: _isRadioSelected,
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      _isRadioSelected = newValue;
-                    });
-                  },
-                ),
-                LabeledRadio(
-                  label:  "며칠 동안 방해 받았다",
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                  value: false,
-                  groupValue: _isRadioSelected,
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      _isRadioSelected = newValue;
-                    });
-                  },
-                ),
-                LabeledRadio(
-                  label:  "7일 이상 방해 받았다",
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                  value: false,
-                  groupValue: _isRadioSelected,
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      _isRadioSelected = newValue;
-                    });
-                  },
-                ),
-                LabeledRadio(
-                  label:  "거의 매일 방해 받았다",
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                  value: false,
-                  groupValue: _isRadioSelected,
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      _isRadioSelected = newValue;
-                    });
-                  },
-                ),
-              ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('우울 진단검사'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Expanded(child:
+            ListView.separated(
+              //scrollDirection: Axis.vertical,
+              //shrinkWrap: true,
+              padding: const EdgeInsets.all(8),
+              itemCount: questions.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  //height: 100,
+                  children: <Widget>[
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child:
+                        Text(
+                          '${index + 1}. ${questions[index]}',
+                          style: const TextStyle(
+                              height: 5, fontSize: 14, color: Colors.black),
+                        )
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <LabeledRadio>[
+                        LabeledRadio(
+                          label: "전혀 방해 받지 않았다",
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          value: 0,
+                          groupValue: answer_int[index],
+                          onChanged: (int newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                        LabeledRadio(
+                          label: "며칠 동안 방해 받았다",
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          value: 1,
+                          groupValue: _isRadioSelected,
+                          onChanged: (int newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                        LabeledRadio(
+                          label: "7일 이상 방해 받았다",
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          value: 2,
+                          groupValue: _isRadioSelected,
+                          onChanged: (int newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                        LabeledRadio(
+                          label: "거의 매일 방해 받았다",
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          value: 3,
+                          groupValue: _isRadioSelected,
+                          onChanged: (int newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) => const Divider(),
             ),
-            ]
-          );
-        },
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
+        ),
+        Center(
+         child:
+          ElevatedButton(
+            child: Text('결과보기'),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyDiagnosisResult())
+              );
+            },
+          ),
+        )
+      ],)
     );
   }
 }
